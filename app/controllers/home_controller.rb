@@ -1,5 +1,6 @@
+
 class HomeController < ApplicationController
   def index
-    ViewCount.increment('/')
+    @counter = ViewCount.increment('/')
   end
 end

@@ -1,0 +1,21 @@
+<table>
+  <tr>
+    <th>User Name</th>
+    <th>Repositories</th>
+    <th>Tags</th>
+  </tr>
+
+  <% if @reports.present? %>
+    <% @reports.each do |report| %>
+    <tr>
+      <td><%= report.username %></td>
+      <td><%= report.repositories.pluck(:name) %></td>
+      <td><%= report.repositories.map(&:tags).flat_map { |tag| tag.split(',') }.uniq %></td>
+    </tr>
+  <% end %>
+  <% else %>
+  <tr>
+    <td colspan=4>You don't have any reports yet.</td>
+  </tr>
+  <% end %>
+</table>
