@@ -1,0 +1,13 @@
+<form action='/profiles' method='post' accept-charset="UTF-8">
+  <label for='username'>Username<label>
+  <input type="text" id="username" name="username"> <br>
+
+  <input type="submit" value="Submit">
+</form>
+
+<% if @profile.errors.any? %>
+  <h2>The following errors prevented the article from saving:</h2>
+  <% @profile.errors.full_messages.each do |msg| %>
+      <%= msg %>
+  <% end %>
+<% end %>
